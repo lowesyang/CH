@@ -1,6 +1,6 @@
 let axios = require('axios')
 
-const LOGIN_URL = "http://api.eobzz.com/httpApi.do?action=loginIn&uid=tracyxiang5&pwd=tracyzhou123"
+const LOGIN_URL = "http://api.eobzz.com/httpApi.do?action=loginIn&uid=账号&pwd=密码"
 const GET_PHONE_URL = "http://api.eobzz.com/httpApi.do?action=getMobilenum&pid=38100&uid=tracyxiang5&token="
 const GET_CODE_URL = "http://api.eobzz.com/httpApi.do?action=getVcodeAndReleaseMobile&uid=tracyxiang5"
 const BLACK_LIST_URL = "http://api.eobzz.com/httpApi.do?action=addIgnoreList&uid=tracyxiang5&pid=38100"
