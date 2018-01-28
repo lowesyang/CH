@@ -1,7 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f76e95e5-2e23-4fcc-a011-3ba407280706" name="Default" comment="" />
+    <list default="true" id="f76e95e5-2e23-4fcc-a011-3ba407280706" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.vscode/settings.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/UPGRADE_GUIDE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/dist/axios.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/dist/axios.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/dist/axios.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/dist/axios.min.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/index.d.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/adapters/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/adapters/http.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/adapters/xhr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/axios.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/cancel/Cancel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/cancel/CancelToken.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/cancel/isCancel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/core/Axios.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/core/InterceptorManager.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/core/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/core/createError.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/core/dispatchRequest.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/core/enhanceError.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/core/settle.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/core/transformData.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/defaults.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/helpers/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/helpers/bind.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/helpers/btoa.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/helpers/buildURL.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/helpers/combineURLs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/helpers/cookies.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/helpers/deprecatedMethod.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/helpers/isAbsoluteURL.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/helpers/isURLSameOrigin.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/helpers/normalizeHeaderName.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/helpers/parseHeaders.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/helpers/spread.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/lib/utils.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/axios/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/debug/.coveralls.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/debug/.eslintrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/debug/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/debug/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/debug/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/debug/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/debug/Makefile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/debug/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/debug/karma.conf.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/debug/node.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/debug/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/debug/src/browser.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/debug/src/debug.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/debug/src/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/debug/src/node.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/follow-redirects/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/follow-redirects/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/follow-redirects/http.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/follow-redirects/https.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/follow-redirects/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/follow-redirects/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/is-buffer/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/is-buffer/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/is-buffer/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/is-buffer/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/is-buffer/test/basic.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/ms/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/ms/license.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/ms/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/ms/readme.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/LICENSE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/doc/asyncworker.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/doc/buffers.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/doc/callback.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/doc/converters.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/doc/errors.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/doc/json.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/doc/maybe_types.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/doc/methods.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/doc/new.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/doc/node_misc.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/doc/object_wrappers.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/doc/persistent.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/doc/scopes.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/doc/script.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/doc/string_bytes.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/doc/v8_internals.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/doc/v8_misc.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/include_dirs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_callbacks.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_callbacks_12_inl.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_callbacks_pre_12_inl.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_converters.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_converters_43_inl.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_converters_pre_43_inl.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_implementation_12_inl.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_implementation_pre_12_inl.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_json.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_maybe_43_inl.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_maybe_pre_43_inl.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_new.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_object_wrap.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_persistent_12_inl.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_persistent_pre_12_inl.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_private.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_string_bytes.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_typedarray_contents.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/nan_weak.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/tools/1to2.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/tools/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nan/tools/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/binding.gyp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/build/Release/obj/node_sleep/node_sleep.tlog/CL.156.read.1.tlog" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/build/Release/obj/node_sleep/node_sleep.tlog/CL.156.write.1.tlog" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/build/Release/obj/node_sleep/node_sleep.tlog/CL.16060.read.1.tlog" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/build/Release/obj/node_sleep/node_sleep.tlog/CL.16060.write.1.tlog" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/build/Release/obj/node_sleep/node_sleep.tlog/CL.read.1.tlog" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/build/Release/obj/node_sleep/node_sleep.tlog/CL.write.1.tlog" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/build/Release/obj/node_sleep/node_sleep.tlog/node_sleep.lastbuildstate" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/build/Release/obj/node_sleep/node_sleep.tlog/unsuccessfulbuild" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/build/Release/obj/node_sleep/sleep.obj" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/build/Release/obj/node_sleep/vc140.pdb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/build/Release/obj/node_sleep/win_delay_load_hook.obj" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/build/binding.sln" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/build/config.gypi" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/build/node_sleep.vcxproj" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/build/node_sleep.vcxproj.filters" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/sleep.cc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/sleep/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -14,11 +157,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
+            <state relative-caret-position="1387">
               <caret line="73" column="49" lean-forward="false" selection-start-line="73" selection-start-column="49" selection-end-line="73" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -43,8 +196,8 @@
         <option value="internal/inspector_async_hook.js" />
         <option value="internal/process/next_tick.js" />
         <option value="$PROJECT_DIR$/test.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -200,15 +353,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1517145786122</updated>
-      <workItem from="1517145787340" duration="11359000" />
+      <workItem from="1517145787340" duration="11500000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11359000" />
+    <option name="totallyTimeSpent" value="11500000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="819" y="0" width="1098" height="1167" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25849056" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -218,7 +372,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33009708" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33009708" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29873908" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -298,14 +452,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -316,8 +462,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
+        <state relative-caret-position="1387">
           <caret line="73" column="49" lean-forward="false" selection-start-line="73" selection-start-column="49" selection-end-line="73" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
