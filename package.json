@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/yyh1102/candy-hunter#readme",
   "dependencies": {
-    "axios": "^0.17.1"
+    "axios": "^0.17.1",
+    "selenium-webdriver": "^3.6.0"
   }
 }

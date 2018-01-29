@@ -1,6 +1,6 @@
 let axios = require('axios')
 
-const LOGIN_URL = "http://api.eobzz.com/httpApi.do?action=loginIn&uid=账号&pwd=密码"
+const LOGIN_URL = "http://api.eobzz.com/httpApi.do?action=loginIn&uid=tracyxiang5&pwd=tracyzhou123"
 const GET_PHONE_URL = "http://api.eobzz.com/httpApi.do?action=getMobilenum&pid=38100&uid=tracyxiang5&token="
 const GET_CODE_URL = "http://api.eobzz.com/httpApi.do?action=getVcodeAndReleaseMobile&uid=tracyxiang5"
 const BLACK_LIST_URL = "http://api.eobzz.com/httpApi.do?action=addIgnoreList&uid=tracyxiang5&pid=38100"
@@ -36,7 +36,7 @@ async function Start() {
         country_code: "cn",
         phone: `+86${phone}`
       })
-      if (res.data.hasPas) {
+      if (res.data.data.registed) {
         // has registed, change a phone
         console.log("The phone number has registed. Reget a new number")
         await axios.get(BLACK_LIST_URL + `&token=${token}&mobiles=${phone}`)
@@ -48,7 +48,7 @@ async function Start() {
         phone: `+86${phone}`,
         country_code: "cn"
       })
-      if (res.data.code != 1) {
+      if (res.data.code !== 1) {
         console.log("Failed to request Candy site for verify code.")
         continue
       }
@@ -58,11 +58,17 @@ async function Start() {
             console.log("Start to fetch verify_code from API.")
             let res = await axios.get(GET_CODE_URL + `&token=${token}&mobile=${phone}`)
             console.log(res.data)
-            if (res.data !== 'not_receive') {
-              clearInterval(intv)
+            if (res.data !== 'not_receive' || res.data.split('|')[0] === 'message') {
               let msg = res.data.split('|')[1]
-              let code = msg.match(NUM_REG)[0]
+              let code = msg.match(NUM_REG)
+              code = code && code[0]
+              if (!code) {
+                return
+              }
+              clearInterval(intv)
               console.log(`Get verify code of ${phone}: ${code}`)
+              resolve()
+              return
               res = await axios.post(VERIFY_CODE_LOGIN, {
                 code,
                 phone: `+86${phone}`,
