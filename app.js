@@ -1,4 +1,6 @@
-let axios = require('axios')
+const {Builder, By, Key, until} = require('selenium-webdriver')
+const {Origin} = require('selenium-webdriver/lib/input')
+const axios = require('axios')
 
 const LOGIN_URL = "http://api.eobzz.com/httpApi.do?action=loginIn&uid=tracyxiang5&pwd=tracyzhou123"
 const GET_PHONE_URL = "http://api.eobzz.com/httpApi.do?action=getMobilenum&pid=38100&uid=tracyxiang5&token="
@@ -6,116 +8,151 @@ const GET_CODE_URL = "http://api.eobzz.com/httpApi.do?action=getVcodeAndReleaseM
 const BLACK_LIST_URL = "http://api.eobzz.com/httpApi.do?action=addIgnoreList&uid=tracyxiang5&pid=38100"
 
 const CHECK_REGISTER_URL = "https://candy.one/api/user/is_register"
-const VERIFY_CODE = "https://candy.one/api/passport/verify-code"
-const VERIFY_CODE_LOGIN = "https://candy.one/api/passport/verify-code-login"
-
-const SET_PSWD_URL = "https://candy.one/api/passport/set-password"
 
 const NUM_REG = /\d{6}/g
+const MAX_LOOP_TIME = 20
 
-async function Start() {
+const BABY_LIST = [
+  "3421208",
+  "3552277",
+  "88493",
+  "430447",
+  "225690"
+]
+
+axios.defaults.timeout = 10000
+
+/**
+ * Sleep
+ * @param duration - seconds
+ */
+function sleep(duration) {
+  let now = Date.now()
+  while (1) {
+    let d = Date.now()
+    if (d - now >= duration * 1000) {
+      break
+    }
+  }
+}
+
+async function start() {
   try {
     let res = await axios.get(LOGIN_URL)
     res = res.data
     let token = res.split('|')[1]
     console.log(`登录成功 Token:${token}`)
-    // let phoneRes = await rq({})
-    // console.log(phoneRes)
+    let user_ind = -1
 
+    let driver
     while (1) {
-      console.log("Start a new loop to get candy")
-      let res = await axios.get(GET_PHONE_URL + token)
-      if (res.data === 'no_data') {
-        console.log("No other phone number available.")
-        break
-      }
-      let phone = res.data.split('|')[0]
-      console.log(`Get a new phone number:${phone}`)
-      console.log("Start to register")
-      res = await axios.post(CHECK_REGISTER_URL, {
-        country_code: "cn",
-        phone: `+86${phone}`
-      })
-      if (res.data.data.registed) {
-        // has registed, change a phone
-        console.log("The phone number has registed. Reget a new number")
-        await axios.get(BLACK_LIST_URL + `&token=${token}&mobiles=${phone}`)
-        continue
-      }
-      // Request candy. to fetch code
-      console.log("Request to get verify code.")
-      res = await axios.post(VERIFY_CODE, {
-        phone: `+86${phone}`,
-        country_code: "cn"
-      })
-      if (res.data.code !== 1) {
-        console.log("Failed to request Candy site for verify code.")
-        continue
-      }
-      let login = new Promise((resolve, reject) => {
-        let intv = setInterval(async () => {
+      user_ind++
+      try {
+        // Create a simulate web browser
+        driver = await new Builder().forBrowser('firefox').build()
+
+        // Start to fetch phone from api
+        let phone
+        console.log("Start a new loop to get candy")
+        while (1) {
+          sleep(1)
+          let res = await axios.get(GET_PHONE_URL + token)
+          if (res.data === 'no_data') {
+            console.log("No other phone number available.")
+            return
+          }
+          let msgArr = res.data.split('|')
+          if (msgArr[0] === 'message') {
+            console.log(msgArr[1])
+            continue
+          }
+          phone = msgArr[0]
+          console.log(`Get a new phone number:${phone}`)
+          console.log("Start to check register")
+          res = await axios.post(CHECK_REGISTER_URL, {
+            country_code: "cn",
+            phone: `+86${phone}`
+          })
+          if (res.data.data.registed) {
+            // has registed, change a phone
+            console.log("The phone number has registed. Reget a new number")
+            await axios.get(BLACK_LIST_URL + `&token=${token}&mobiles=${phone}`)
+            continue
+          }
+          break
+        }
+
+        await driver.get('https://candy.one/user/login?id=' + BABY_LIST[parseInt(user_ind % BABY_LIST.length)])
+        await driver.findElement(By.name('phone')).sendKeys(phone)
+        await driver.findElement(By.xpath('//button[@class="candy-btn"]')).click()
+        while (1) {
+          try {
+            await driver.wait(until.elementLocated(By.id('nc_1_n1z')), 2000)
+            break
+          } catch (e) {
+            await driver.findElement(By.xpath('//button[@class="candy-btn"]')).click()
+          }
+        }
+        // Check if verify slide get error or not
+        while (1) {
+          await driver.actions({bridge: true})
+            .move({origin: driver.findElement(By.id('nc_1_n1z'))})
+            .press()
+            .move({x: 500, y: 0, origin: Origin.POINTER})
+            .release()
+            .perform()
+          try {
+            await driver.wait(until.urlContains('code'), 2000)
+            break
+          } catch (e) {
+            let resetBtn = await driver.findElement(By.xpath('//a[@href="javascript:noCaptcha.reset(1)"]'))
+            let isDisplay = await resetBtn.isDisplayed()
+            if (isDisplay) {
+              await resetBtn.click()
+              await driver.wait(until.elementLocated(By.id('nc_1_n1z')))
+            }
+          }
+        }
+
+        // Get code from API
+        let code
+        let loopTime = 0
+        while (loopTime < MAX_LOOP_TIME) {
           try {
             console.log("Start to fetch verify_code from API.")
             let res = await axios.get(GET_CODE_URL + `&token=${token}&mobile=${phone}`)
             console.log(res.data)
-            if (res.data !== 'not_receive' || res.data.split('|')[0] === 'message') {
+            if (res.data !== 'not_receive' && res.data.split('|')[0] !== 'message') {
               let msg = res.data.split('|')[1]
-              let code = msg.match(NUM_REG)
+              if (!msg) throw(void 666)
+              code = msg.match(NUM_REG)
               code = code && code[0]
-              if (!code) {
-                return
-              }
-              clearInterval(intv)
+              if (!code) throw(void 666)
               console.log(`Get verify code of ${phone}: ${code}`)
-              resolve()
-              return
-              res = await axios.post(VERIFY_CODE_LOGIN, {
-                code,
-                phone: `+86${phone}`,
-                country_code: 'cn',
-                inviter_id: '3421208',
-                // platform: 3,
-                // scene: 'login',
-                // session: '0152JIZgtMjy7iQLwB8JakWSDNcD98ob1rRTF6PqmyyNWvMTombwR_bUOdT9VlPAYK4ui9VUtvTdlBAsTRDRJRBbXMIlE49STVclA7FFvX2pQGwOzde3qpYrPnQt9P4osE8HnQ_GJozNCl5I80mPelurUIerRZ-eZy1G-LP8x6gjgQmki5i33Fvy2lWFm51Vx1HE83ymk9JwFDecJal2QhEdEVLjYdN9qjCLJRQ-Q0hkUrhCzFZQcTOiYwj8yQSzpUVhZkv1BUGXY2ywYtYip6DbhlW_pLVnZ0V1Ue4zmWguekvbIOUeC4yEiD7_blhB90DxOKzLm473JwX62SCtTI-mcrJCF8Sp5h5lcmirRHjx1EzMKWa9cyE-wK27Z2tlJGkIHO8bPKFZIHwVLLMKr4RwoYKzFbwq6rL35Ydepn-ZU',
-                // sig: '05a1C7nT4bR5hcbZlAujcdyRwtEYMaG1S18fPHCJpLhDweFmtXl_lvRTlmN27fijCrE-8jND828U90YWZwmY7xZ5EnYQ9T5oC0nsShqZ9OROpiGp4-RSlo2wwzH2kqN58cK2GoAkAAJOg26J18tMQPvK406RM__zQ9dmDgm3jv3Tf8ZLrDnJYUvrbF6xs1H2nknAaArEkBmOPhG8A5mpB8gZMA5-_PSNx26v2JxF0rqsK11rLcgAwFdTUrxJTzwSK1ENdIfUeCNtvBvguQAms653r-G4aariNKIw2w8XAFFavPXuABCMmE6o5AsZxpIhXsPw5NDOfoNVQJ4YbBKzXauU6O1oWU8cChObsxDOFWFQea91SOxycpj386_uDgabxVyIx4RW0HVFZYrrQmY8R0aLQnLy_WQVQv7KREDmh-2ocZrxGnXXjdE-Il-QjZn4NyUctUHvJUuz_we2SU1g5I_3X9ZPfFXrz_3wYgP15f57ZcmVDY1QDKClNeiRPi33l_02Sp5pYN_I8yHVthnZmzIbk3em2CB0Q8i39TF6afgEvVlab27uktY-mbXCqqGS8kquTmUhzAZHjk2_yCrYuuxXv1pnneiyx8OXaHQqm_Zj7vX5jpbSG1cN2wwqAcGPq_JXean2soIbj6VtC82455uKSJNLQOpVbx9oL-DCS63wZDG-FpqstUMyxZtx4rt1yk8d_1XDhk2BGsJSkwfvimYkp_vuu3RNKBvQlu7ID9GymGxkLYDOyr9SDd3ry4y6BW',
-                // token: 'FFFF00000000017A31CA:1517157165741:0.7394663147854661'
-              })
-              if (res.data.code) {
-                let accessToken = res.data.data.access_token
-                console.log(`Get access token:${accessToken}`)
-                res = await axios({
-                  method: 'post',
-                  url: SET_PSWD_URL,
-                  headers: {
-                    'x-access-token': accessToken
-                  },
-                  data: {
-                    country_code: 'cn',
-                    password: '123456',
-                    password2: '123456',
-                    phone: `+86${phone}`
-                  }
-                })
-                if (res.data.code) {
-                  console.log(`${phone} 登录成功，邀请成功.`)
-                  await axios.get(BLACK_LIST_URL + `&token=${token}&mobiles=${phone}`)
-                  resolve()
-                } else {
-                  console.log("${phone} 登录失败，设置密码失败。")
-                  resolve()
-                }
-              }
+              break
             }
           } catch (e) {
-            console.log(e)
           }
-        }, 3000)
-      })
-      await login
+          loopTime++
+          sleep(3)
+        }
+
+        if (!code) {
+          await driver.quit()
+          continue
+        }
+        await driver.findElement(By.name('code')).sendKeys(code)
+        await driver.findElement(By.xpath('//button[@class="candy-btn"]')).click()
+        await driver.wait(until.urlContains("setPassword"))
+      } catch (e) {
+        console.log(e)
+      } finally {
+        driver.quit()
+      }
     }
   } catch (e) {
-    console.error(e)
+    console.log(e)
   }
 }
 
-Start()
+start()

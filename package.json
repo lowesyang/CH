@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start":"node app.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,6 @@
   "homepage": "https://github.com/yyh1102/candy-hunter#readme",
   "dependencies": {
     "axios": "^0.17.1",
-    "selenium-webdriver": "^3.6.0"
+    "selenium-webdriver": "^4.0.0-alpha.1"
   }
 }
